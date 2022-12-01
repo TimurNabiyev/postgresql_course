@@ -1,30 +1,21 @@
 package com.github.timurnabiyev.postgresql_course.models;
 
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@Data
+@Builder
+@ToString
+@NoArgsConstructor
 public class EmployeeTerritories {
     private Integer employee;
     private String territoryId;
-
-    public EmployeeTerritories() {
-    }
 
     public EmployeeTerritories(Integer employee, String territoryId) {
         this.employee = employee;
         this.territoryId = territoryId;
     }
 
-    public Integer getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Integer employee) {
-        this.employee = employee;
-    }
-
-    public String getTerritoryId() {
-        return territoryId;
-    }
-
-    public void setTerritoryId(String territoryId) {
-        this.territoryId = territoryId;
-    }
 }

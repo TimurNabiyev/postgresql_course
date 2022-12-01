@@ -1,60 +1,26 @@
 package com.github.timurnabiyev.postgresql_course.models;
 
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@Data
+@Builder
+@ToString
+@NoArgsConstructor
 public class Categories {
     private Integer categoryId;
     private String categoryName;
     private String description;
-    private String picture;
+    private Short picture;
 
-    public Categories() {
-    }
 
-    public Categories(Integer categoryId, String categoryName, String description, String picture) {
+    public Categories(Integer categoryId, String categoryName, String description, Short picture) {
         this.categoryId = categoryId;
         this.categoryName = categoryName;
         this.description = description;
         this.picture = picture;
     }
 
-    public Integer getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(Integer categoryId) {
-        this.categoryId = categoryId;
-    }
-
-    public String getCategoryName() {
-        return categoryName;
-    }
-
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getPicture() {
-        return picture;
-    }
-
-    public void setPicture(String picture) {
-        this.picture = picture;
-    }
-
-    @Override
-    public String toString() {
-        return "Categories{" +
-                "categoryId=" + categoryId +
-                ", categoryName='" + categoryName + '\'' +
-                ", description='" + description + '\'' +
-                ", picture='" + picture + '\'' +
-                '}';
-    }
 }
