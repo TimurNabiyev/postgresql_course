@@ -10,11 +10,11 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 public class CustomerCustomerDemo {
-    private String customerId;
-    private String customerTypeId;
+    private  Long customerId;
+    private Long customerTypeId;
 
 
-    public CustomerCustomerDemo(String customerId, String customerTypeId) {
+    public CustomerCustomerDemo(Long customerId, Long customerTypeId) {
         this.customerId = customerId;
         this.customerTypeId = customerTypeId;
     }

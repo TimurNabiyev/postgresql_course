@@ -4,14 +4,11 @@ import com.github.timurnabiyev.postgresql_course.dao.CategoriesDao;
 import com.github.timurnabiyev.postgresql_course.dao.impl.query.CategoriesQuery;
 import com.github.timurnabiyev.postgresql_course.initdb.InitToDB;
 import com.github.timurnabiyev.postgresql_course.models.Categories;
+import lombok.NoArgsConstructor;
 
 import java.sql.*;
-
+@NoArgsConstructor
 public class CategoriesDaoImpl implements CategoriesDao {
-
-    public CategoriesDaoImpl() {
-
-    }
 
     @Override
     public Categories findCategoryByID(Long categoryId) {
