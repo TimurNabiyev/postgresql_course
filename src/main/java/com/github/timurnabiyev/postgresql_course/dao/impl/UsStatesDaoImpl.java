@@ -4,9 +4,10 @@ import com.github.timurnabiyev.postgresql_course.dao.UsStatesDao;
 import com.github.timurnabiyev.postgresql_course.dao.impl.query.UsStatesQuery;
 import com.github.timurnabiyev.postgresql_course.initdb.InitToDB;
 import com.github.timurnabiyev.postgresql_course.models.UsStates;
+import lombok.NoArgsConstructor;
 
 import java.sql.*;
-
+@NoArgsConstructor
 public class UsStatesDaoImpl implements UsStatesDao {
     @Override
     public UsStates findUsStatesByID(Long usStatesId) {
@@ -124,5 +125,6 @@ public class UsStatesDaoImpl implements UsStatesDao {
             System.out.printf("%-3s%-21s%-3s%-8s%n", rs.getString("state_id"), rs.getString("state_name"),
                     rs.getString("state_abbr"), rs.getString("state_region"));
         }
+        System.out.println();
     }
 }

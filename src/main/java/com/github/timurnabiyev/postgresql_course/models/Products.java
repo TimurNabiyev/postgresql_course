@@ -1,15 +1,13 @@
 package com.github.timurnabiyev.postgresql_course.models;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.math.BigDecimal;
 @Data
 @Builder
 @ToString
 @NoArgsConstructor
+@AllArgsConstructor
 public class Products {
     private Integer productId;
     private String productName;
@@ -21,20 +19,5 @@ public class Products {
     private Integer unitsOnOrder;
     private Integer reorderLevel;
     private Integer discontinued;
-
-    public Products(Integer productId, String productName, Integer supplierId, Integer categoryId,
-                    String quantityPerUnit, BigDecimal unitPrice, Integer unitsInStock,
-                    Integer unitsOnOrder, Integer reorderLevel, Integer discontinued) {
-        this.productId = productId;
-        this.productName = productName;
-        this.supplierId = supplierId;
-        this.categoryId = categoryId;
-        this.quantityPerUnit = quantityPerUnit;
-        this.unitPrice = unitPrice;
-        this.unitsInStock = unitsInStock;
-        this.unitsOnOrder = unitsOnOrder;
-        this.reorderLevel = reorderLevel;
-        this.discontinued = discontinued;
-    }
 
 }

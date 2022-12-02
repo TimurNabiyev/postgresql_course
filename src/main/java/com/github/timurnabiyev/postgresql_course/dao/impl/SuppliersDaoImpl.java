@@ -4,14 +4,14 @@ import com.github.timurnabiyev.postgresql_course.dao.SuppliersDao;
 import com.github.timurnabiyev.postgresql_course.dao.impl.query.SuppliersQuery;
 import com.github.timurnabiyev.postgresql_course.initdb.InitToDB;
 import com.github.timurnabiyev.postgresql_course.models.Suppliers;
+import lombok.NoArgsConstructor;
 
 import java.sql.*;
-
+@NoArgsConstructor
 public class SuppliersDaoImpl implements SuppliersDao {
 
     @Override
     public Suppliers findSupplierByID(Long id) {
-
         Suppliers supplier = null;
 
         try (Connection connection = InitToDB.connect();
@@ -59,6 +59,15 @@ public class SuppliersDaoImpl implements SuppliersDao {
             pstmt.setString(9, suppliers.getPhone());
             pstmt.setString(10, suppliers.getFax());
             pstmt.setURL(11, suppliers.getHomePage());
+
+            int affectedRows = pstmt.executeUpdate();
+            if (affectedRows > 0) {
+                try (ResultSet rs = pstmt.getGeneratedKeys()) {
+                    if (rs.next()) {
+                        id = rs.getLong(1);
+                    }
+                }
+            }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
@@ -125,14 +134,14 @@ public class SuppliersDaoImpl implements SuppliersDao {
         int affectedRows = 0;
 
         try (Connection conn = InitToDB.connect();
-             PreparedStatement pstmt = conn.prepareStatement(SuppliersQuery.DELETE_SUPPLIER_BAY_ID)) {
+             PreparedStatement pstmt = conn.prepareStatement(SuppliersQuery.DELETE_SUPPLIER_BY_ID)) {
 
             pstmt.setLong(1, id);
             affectedRows = pstmt.executeUpdate();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-        return 0;
+        return affectedRows;
     }
 
     private void displaySuppliers(ResultSet rs) throws SQLException {

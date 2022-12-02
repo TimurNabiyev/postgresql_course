@@ -1,7 +1,5 @@
 package com.github.timurnabiyev.postgresql_course.dao.impl.query;
 
-import com.github.timurnabiyev.postgresql_course.models.Suppliers;
-
 public final class SuppliersQuery {
     private SuppliersQuery() {
     }
@@ -26,6 +24,6 @@ public final class SuppliersQuery {
             "city, region, postal_code, country, phone, fax, homepage " +
             "WHERE supplier_id = ?";
 
-    public static final String DELETE_SUPPLIER_BAY_ID = "" +
+    public static final String DELETE_SUPPLIER_BY_ID = "" +
             "DELETE FROM timur.suppliers WHERE supplier_id = ?";
 }

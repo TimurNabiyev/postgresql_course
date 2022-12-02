@@ -2,17 +2,16 @@ package com.github.timurnabiyev.postgresql_course;
 
 
 
-import com.github.timurnabiyev.postgresql_course.dao.CategoriesDao;
-import com.github.timurnabiyev.postgresql_course.dao.SuppliersDao;
-import com.github.timurnabiyev.postgresql_course.dao.impl.CategoriesDaoImpl;
-import com.github.timurnabiyev.postgresql_course.dao.impl.SuppliersDaoImpl;
+import com.github.timurnabiyev.postgresql_course.dao.*;
+import com.github.timurnabiyev.postgresql_course.dao.impl.*;
+import com.github.timurnabiyev.postgresql_course.models.Categories;
+import com.github.timurnabiyev.postgresql_course.models.CustomerCustomerDemo;
 
 import java.sql.*;
 
 public class ApplicationMain {
     public static void main(String[] args) throws SQLException {
-        SuppliersDao suppliersDao = new SuppliersDaoImpl();
-        suppliersDao.getSuppliers();
+
 
     }
 
